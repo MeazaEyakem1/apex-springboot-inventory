@@ -1,6 +1,8 @@
 package com.apex.eqp.inventory.helpers;
 
 import com.apex.eqp.inventory.entities.Product;
+import com.apex.eqp.inventory.entities.RecalledProduct;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Getter
 public class ProductFilter {
 
     private final Set<String> recalledProducts;
@@ -17,10 +20,10 @@ public class ProductFilter {
     }
 
     public List<Product> removeRecalledFrom(Collection<Product> allProduct) {
-        return allProduct.stream().filter(ProductFilter::filterByName).collect(Collectors.toList());
+        return allProduct.stream().filter(product -> filterByName(product)).collect(Collectors.toList());
     }
 
-    private static boolean filterByName(Product product) {
-        return true;
+    private  boolean filterByName(Product product) {
+        return !recalledProducts.contains(product.getName());
     }
 }

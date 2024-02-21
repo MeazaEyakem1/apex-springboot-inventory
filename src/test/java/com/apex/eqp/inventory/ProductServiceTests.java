@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 class ProductServiceTests {
 
@@ -71,7 +73,10 @@ class ProductServiceTests {
 
         Assertions.assertNotNull(productService.findById(loadedProduct.getId()).orElse(null));
     }
+    @Test
+    void testGetAllProductExcludingRecalledProduct(){
+        Collection<Product> productList = productService.getAllProduct();
 
-    // Write your tests below
-
+        assertEquals(2,productList.size());
+    }
 }

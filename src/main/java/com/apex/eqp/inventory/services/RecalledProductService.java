@@ -17,7 +17,6 @@ public class RecalledProductService {
     public RecalledProduct save(RecalledProduct recalledProduct) {
         return recalledProductRepository.save(recalledProduct);
     }
-
     public Collection<RecalledProduct> getAllRecalledProducts() {
         return recalledProductRepository.findAll();
     }

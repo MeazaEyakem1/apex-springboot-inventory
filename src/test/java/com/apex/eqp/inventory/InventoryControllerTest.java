@@ -1,5 +1,4 @@
 package com.apex.eqp.inventory;
-
 import com.apex.eqp.inventory.controllers.InventoryController;
 import com.apex.eqp.inventory.services.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RequiredArgsConstructor
 class InventoryControllerTest {
 
-    @Autowired
+//    @Autowired
     private MockMvc mockMvc;
 
     @InjectMocks
@@ -46,5 +46,8 @@ class InventoryControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(status().isOk());
     }
+
+
+
 
 }
